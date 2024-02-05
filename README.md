@@ -4,8 +4,6 @@ tela de login -> nome de usuário (input text) e senha (input password)
 
 tela de cadastro -> nome de usuário (input text), senha (input password) e confirmar senha (input password)
 
-tela principal-> dificuldade (select), selecionar tema (select), tipo de pergunta (select), quantidade de jogadores? (select ou input number) e botão iniciar (button ou input submit)
-
 tela de jogo -> pergunta (h3), alternativas (input radio) e botão salvar resposta (button ou input submit)
 
 tela de resultado? -> quantidade de acertos e respostas corretas para as alternativas
