@@ -19,24 +19,12 @@ password
 
 *question*
 id
-type_id
-difficulty_id
-category_id
+type
+difficulty
+category
 text
 correct_answer
 incorrect_answers
-
-*category*
-id
-description
-
-*type*
-id
-description
-
-*difficulty*
-id
-description
 
 *game_questions*
 id
@@ -48,7 +36,4 @@ is_correct
 *game*
 id
 user_id
-type_id
-difficulty_id
-category_id
-datetime
+start_date
