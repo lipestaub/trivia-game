@@ -23,7 +23,7 @@ CREATE TABLE public.game(
     user_id int4 NOT NULL,
     start_date TIMESTAMP NOT NULL,
     CONSTRAINT game_pkey PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES user(id)
+    FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
 
 CREATE TABLE public.game_questions(
