@@ -74,7 +74,17 @@
         public function getQuestionById(int $id)
         {
             $questionDAO = new QuestionDAO();
-            return $questionDAO->getQuestionById($id);
+            $question = $questionDAO->getQuestionById($id);
+
+            return new self(
+                $question['id'],
+                $question['type'],
+                $question['difficulty'],
+                $question['category'],
+                $question['text'],
+                $question['correct_answer'],
+                $question['incorrect_answers']
+            );
         }
 
         public function getQuestion()

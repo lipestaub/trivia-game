@@ -30,7 +30,7 @@
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll();
+            return $stmt->fetchAll()[0];
         }
 
         public function getQuestion()

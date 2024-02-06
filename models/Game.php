@@ -38,7 +38,13 @@
         public function getGameById(int $id)
         {
             $gameDAO = new GameDAO();
-            return $gameDAO->getGameById($id);
+            $game = $gameDAO->getGameById($id);
+
+            return new self(
+                $game['id'],
+                $game['user_id'],
+                $game['start_date'],
+            );
         }
 
         public function getGames()
@@ -51,6 +57,20 @@
         {
             $gameDAO = new GameDAO();
             return $gameDAO->getGamesByUserId($userId);
+        }
+
+        public function getLastGameByUserId(int $userId)
+        {
+            $gameDAO = new GameDAO();
+            $game = $gameDAO->getLastGameByUserId($userId);
+
+            return new self(
+                $game['id'],
+                $game['user_id'],
+                $game['start_date'],
+            );
+
+
         }
     }
 ?>
