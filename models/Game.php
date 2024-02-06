@@ -38,19 +38,19 @@
         public function getGameById(int $id)
         {
             $gameDAO = new GameDAO();
-            $gameDAO->getGameById($id);
+            return $gameDAO->getGameById($id);
         }
 
         public function getGames()
         {
             $gameDAO = new GameDAO();
-            $gameDAO->getGames();
+            return $gameDAO->getGames();
         }
 
         public function getGamesByUserId(int $userId)
         {
             $gameDAO = new GameDAO();
-            $gameDAO->getGamesByUserId($userId);
+            return $gameDAO->getGamesByUserId($userId);
         }
     }
 ?>

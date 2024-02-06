@@ -38,19 +38,19 @@
         public function getUserById(int $id)
         {
             $userDAO = new UserDAO();
-            $userDAO->getUserById($id);
+            return $userDAO->getUserById($id);
         }
 
         public function getUserByUsernameAndPassword(string $username, string $password)
         {
             $userDAO = new UserDAO();
-            $userDAO->getUserByUsernameAndPassword($username, $password);
+            return $userDAO->getUserByUsernameAndPassword($username, $password);
         }
 
         public function getUserByUsername(string $username)
         {
             $userDAO = new UserDAO();
-            $userDAO->getUserByUsername($username);
+            return $userDAO->getUserByUsername($username);
         }
     }
 ?>

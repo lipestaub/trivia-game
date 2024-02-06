@@ -74,13 +74,39 @@
         public function getQuestionById(int $id)
         {
             $questionDAO = new QuestionDAO();
-            $questionDAO->getQuestionById($id);
+            return $questionDAO->getQuestionById($id);
         }
 
         public function getQuestion()
         {
             $questionDAO = new QuestionDAO();
-            $questionDAO->getQuestion();
+            $question = $questionDAO->getQuestion();
+            
+            return new self(
+                $question['id'],
+                $question['type'],
+                $question['difficulty'],
+                $question['category'],
+                $question['text'],
+                $question['correct_answer'],
+                $question['incorrect_answers']
+            );
+        }
+
+        public function getLastQuestion()
+        {
+            $questionDAO = new QuestionDAO();
+            $question = $questionDAO->getLastQuestion();
+
+            return new self(
+                $question['id'],
+                $question['type'],
+                $question['difficulty'],
+                $question['category'],
+                $question['text'],
+                $question['correct_answer'],
+                $question['incorrect_answers']
+            );
         }
     }
 ?>

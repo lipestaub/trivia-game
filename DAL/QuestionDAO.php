@@ -1,4 +1,6 @@
 <?php
+    require_once __DIR__ . '/../config/Connect.php';
+    
     class QuestionDAO
     {
         private $db;
@@ -10,9 +12,8 @@
 
         public function createQuestion(Question $question)
         {
-            $query = "INSERT INTO question VALUES (:id, :type, :difficulty, :category, :text, :correct_answer, :incorrect_answer);";
+            $query = "INSERT INTO question (type, difficulty, category, text, correct_answer, incorrect_answers) VALUES (:type, :difficulty, :category, :text, :correct_answer, :incorrect_answers);";
             $stmt = $this->db->prepare($query);
-            $stmt->bindValue(":id", $question->getId());
             $stmt->bindValue(":type", $question->getType());
             $stmt->bindValue(":difficulty", $question->getDifficulty());
             $stmt->bindValue(":category", $question->getCategory());
@@ -38,7 +39,16 @@
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll();
+            return $stmt->fetchAll()[0];
+        }
+
+        public function getLastQuestion()
+        {
+            $query = "SELECT * FROM question ORDER BY id DESC LIMIT 1;";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll()[0];
         }
     }
 ?>

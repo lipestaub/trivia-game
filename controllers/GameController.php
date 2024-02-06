@@ -7,23 +7,30 @@
         public function gamePage()
         {
             $requestOpenTriviaDatabaseAPI = new RequestOpenTriviaDatabaseAPI();
-            $question = $requestOpenTriviaDatabaseAPI->getResponse();
+            $openTriviaQuestion = $requestOpenTriviaDatabaseAPI->getResponse();
 
-            if ($question !== null) {
+            $questionModel = new Question();
+
+            if ($openTriviaQuestion !== null) {
                 $question = new Question(
                     null,
-                    $question['type'],
-                    $question['difficulty'],
-                    $question['category'],
-                    $question['question'],
-                    $question['correct_answer'],
-                    json_encode($question['incorrect_answers'])
+                    $openTriviaQuestion['type'],
+                    $openTriviaQuestion['difficulty'],
+                    $openTriviaQuestion['category'],
+                    $openTriviaQuestion['question'],
+                    $openTriviaQuestion['correct_answer'],
+                    json_encode($openTriviaQuestion['incorrect_answers'])
                 );
+
+                $questionModel->createQuestion($question);
+                $question = $questionModel->getLastQuestion();
             }
             else {
-                $questionModel = new Question();
                 $question = $questionModel->getQuestion();
             }
+
+            $answers = array_merge(explode(',', str_replace(['[', ']', '"'], '', $question->getIncorrectAnswers())), [$question->getCorrectAnswers()]);
+            shuffle($answers);
             
             require_once __DIR__ . '/../views/game.php';
         }

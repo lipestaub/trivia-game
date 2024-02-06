@@ -58,7 +58,7 @@
         public function getGameQuestionsByGameId(int $gameId)
         {
             $gameQuestionsDao = new GameQuestionsDAO();
-            $gameQuestionsDao->getGameQuestionsByGameId($gameId);
+            return $gameQuestionsDao->getGameQuestionsByGameId($gameId);
         }
     }
 ?>
