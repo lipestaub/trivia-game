@@ -28,7 +28,7 @@
                 $controllerName = $controllerInfo[0];
                 $controllerMethod = $controllerInfo[1];
                                 
-                require_once realpath('.') . '/controllers/' . $controllerName . '.php';
+                require_once __DIR__ . '/../controllers/' . $controllerName . '.php';
             
                 $controller = new $controllerName();
             
