@@ -42,6 +42,8 @@
 
         public function saveAnswer()
         {
+            session_start();
+
             
         }
     }

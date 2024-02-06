@@ -12,9 +12,8 @@
 
         public function createUser(User $user)
         {
-            $query = "INSERT INTO user VALUES (:id, :username, :password);";
+            $query = 'INSERT INTO "user" (username, password) VALUES (:username, :password);';
             $stmt = $this->db->prepare($query);
-            $stmt->bindValue(":id", $user->getId());
             $stmt->bindValue(":username", $user->getUsername());
             $stmt->bindValue(":password", $user->getPassword());
             $stmt->execute();
@@ -32,7 +31,7 @@
 
         public function getUserByUsernameAndPassword(string $username, string $password)
         {
-            $query = "SELECT * FROM user WHERE username = :username AND password = :password;";
+            $query = 'SELECT * FROM "user" WHERE username = :username AND password = :password;';
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":password", $password);
@@ -43,7 +42,7 @@
 
         public function getUserByUsername(string $username)
         {
-            $query = "SELECT * FROM user WHERE username = :username;";
+            $query = 'SELECT * FROM "user" WHERE username = :username;';
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(":username", $username);
             $stmt->execute();
