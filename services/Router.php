@@ -8,6 +8,7 @@
                 'GET' => [
                     '/' => 'UserController@signInPage',
                     '/sign-in' => 'UserController@signInPage',
+                    '/sign-up' => 'UserController@signUpPage',
                     '/sign-out' => 'UserController@signOut',
                     '/game' => 'GameController@gamePage',
                     '/results' => 'GameController@resultsPage'
@@ -27,7 +28,7 @@
                 $controllerName = $controllerInfo[0];
                 $controllerMethod = $controllerInfo[1];
                                 
-                require_once '../controllers/' . $controllerName . '.php';
+                require_once realpath('.') . '/controllers/' . $controllerName . '.php';
             
                 $controller = new $controllerName();
             
