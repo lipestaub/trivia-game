@@ -10,10 +10,11 @@
 
         public function createUser(User $user)
         {
-            $query = "INSERT INTO user VALUES (:username, :password);";
+            $query = "INSERT INTO user VALUES (:id, :username, :password);";
             $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":username", $user->getUsername());
-            $stmt->bindParam(":password", $user->getPassword());
+            $stmt->bindValue(":id", $user->getId());
+            $stmt->bindValue(":username", $user->getUsername());
+            $stmt->bindValue(":password", $user->getPassword());
             $stmt->execute();
         }
 
@@ -23,6 +24,8 @@
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(":id", $id);
             $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll();
         }
 
         public function getUserByUsernameAndPassword(string $username, string $password)
@@ -32,6 +35,8 @@
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":password", $password);
             $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll();
         }
 
         public function getUserByUsername(string $username)
@@ -40,8 +45,8 @@
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(":username", $username);
             $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll();
         }
     }
-
 ?>
-

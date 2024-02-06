@@ -1,7 +1,6 @@
 <?php
     class GameQuestionsDAO
     {
-
         private $db;
 
         public function __construct()
@@ -13,21 +12,22 @@
         {
             $query = "INSERT INTO game_questions VALUES (:id, :game_id, :question_id, :user_answer, :is_correct);";
             $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":id", $gameQuestions->getId());
-            $stmt->bindParam(":game_id", $gameQuestions->getGameId());
-            $stmt->bindParam(":question_id", $gameQuestions->getQuestionId());
-            $stmt->bindParam(":user_answer", $gameQuestions->getUserAnswer());
-            $stmt->bindParam(":is_correct", $gameQuestions->getIsCorrect());
+            $stmt->bindValue(":id", $gameQuestions->getId());
+            $stmt->bindValue(":game_id", $gameQuestions->getGameId());
+            $stmt->bindValue(":question_id", $gameQuestions->getQuestionId());
+            $stmt->bindValue(":user_answer", $gameQuestions->getUserAnswer());
+            $stmt->bindValue(":is_correct", $gameQuestions->getIsCorrect());
             $stmt->execute();
         }
 
-        public function getGameQuestionsById($id)
+        public function getGameQuestionsById(int $gameId)
         {
-            $query = "SELECT * FROM game_questions WHERE id = :id;";
+            $query = "SELECT * FROM game_questions WHERE game_id = :game_id;";
             $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":game_id", $gameId);
             $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll();
         }
-
     }
 ?>
