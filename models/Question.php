@@ -9,7 +9,7 @@
         private string $correct_answers;
         private string $incorrect_answers;
 
-        public function __construct($id, $type, $difficulty, $category, $text, $correct_answers, $incorrect_answers)
+        public function __construct(?int $id = null, string $type, string $difficulty, string $category, string $text, string $correct_answers, string $incorrect_answers)
         {
             $this->id                = $id;
             $this->type              = $type;
@@ -50,7 +50,7 @@
             return $this->correct_answers;
         }
 
-        public function getinCorrectAnswers()
+        public function getIncorrectAnswers()
         {
             return $this->incorrect_answers;
         }
