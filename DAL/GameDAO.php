@@ -27,7 +27,7 @@
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll();
+            return $stmt->fetchAll()[0];
         }
 
         public function getGames()
@@ -47,6 +47,15 @@
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             return $stmt->fetchAll();
+        }
+
+        public function getLastGameByUserId(int $userId)
+        {
+            $query = "SELECT * FROM game ORDER BY id DESC LIMIT 1;";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(":user_id", $userId);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll()[0];
         }
     }
 ?>
