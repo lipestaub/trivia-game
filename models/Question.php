@@ -4,14 +4,14 @@
     class Question
     {
         private ?int $id;
-        private string $type;
-        private string $difficulty;
-        private string $category;
-        private string $text;
-        private string $correct_answers;
-        private string $incorrect_answers;
+        private ?string $type;
+        private ?string $difficulty;
+        private ?string $category;
+        private ?string $text;
+        private ?string $correct_answers;
+        private ?string $incorrect_answers;
 
-        public function __construct(?int $id = null, string $type, string $difficulty, string $category, string $text, string $correct_answers, string $incorrect_answers)
+        public function __construct(?int $id = null, ?string $type, ?string $difficulty, ?string $category, ?string $text, ?string $correct_answers, ?string $incorrect_answers)
         {
             $this->id                = $id;
             $this->type              = $type;

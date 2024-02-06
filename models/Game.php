@@ -4,10 +4,10 @@
     class Game
     {
         private ?int $id;
-        private int $user_id;
-        private DateTime $start_date;
+        private ?int $user_id;
+        private ?DateTime $start_date;
 
-        public function __construct(?int $id = null, int $user_id, DateTime $start_date)
+        public function __construct(?int $id = null, ?int $user_id, ?DateTime $start_date)
         {
             $this->id         = $id;
             $this->user_id    = $user_id;

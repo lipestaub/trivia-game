@@ -4,12 +4,12 @@
     class GameQuestions
     {
         private ?int $id;
-        private int $game_id;
-        private int $question_id;
-        private string $user_answer;
-        private bool $is_correct;
+        private ?int $game_id;
+        private ?int $question_id;
+        private ?string $user_answer;
+        private ?bool $is_correct;
 
-        public function __construct(?int $id = null, int $game_id, int $question_id, string $user_answer, bool $is_correct)
+        public function __construct(?int $id = null, ?int $game_id, ?int $question_id, ?string $user_answer, ?bool $is_correct)
         {
             $this->id          = $id;
             $this->game_id     = $game_id;
