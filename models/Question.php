@@ -1,4 +1,6 @@
 <?php 
+    require_once __DIR__ . "/../DAL/QuestionDAO.php";
+
     class Question
     {
         private int $id;
@@ -53,6 +55,24 @@
         public function getIncorrectAnswers()
         {
             return $this->incorrect_answers;
+        }
+
+        public function createQuestion(self $question)
+        {
+            $questionDAO = new QuestionDAO();
+            $questionDAO->createQuestion($question);
+        }
+
+        public function getQuestionById(int $id)
+        {
+            $questionDAO = new QuestionDAO();
+            $questionDAO->getQuestionById($id);
+        }
+
+        public function getQuestion()
+        {
+            $questionDAO = new QuestionDAO();
+            $questionDAO->getQuestion();
         }
     }
 ?>

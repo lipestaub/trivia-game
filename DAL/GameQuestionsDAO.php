@@ -20,7 +20,7 @@
             $stmt->execute();
         }
 
-        public function getGameQuestionsById(int $gameId)
+        public function getGameQuestionsByGameId(int $gameId)
         {
             $query = "SELECT * FROM game_questions WHERE game_id = :game_id;";
             $stmt = $this->db->prepare($query);

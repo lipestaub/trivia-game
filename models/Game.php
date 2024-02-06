@@ -1,4 +1,6 @@
-<?php 
+<?php
+    require_once __DIR__ . "/../DAL/GameDAO.php";
+
     class Game
     {
         private int $id;
@@ -25,6 +27,30 @@
         public function getStartDate()
         {
             return $this->start_date;
+        }
+
+        public function createGame(self $game)
+        {
+            $gameDAO = new GameDAO();
+            $gameDAO->createGame($game);
+        }
+
+        public function getGameById(int $id)
+        {
+            $gameDAO = new GameDAO();
+            $gameDAO->getGameById($id);
+        }
+
+        public function getGames()
+        {
+            $gameDAO = new GameDAO();
+            $gameDAO->getGames();
+        }
+
+        public function getGamesByUserId(int $userId)
+        {
+            $gameDAO = new GameDAO();
+            $gameDAO->getGamesByUserId($userId);
         }
     }
 ?>

@@ -1,4 +1,6 @@
 <?php 
+    require_once __DIR__ . "/../DAL/GameQuestionsDAO.php";
+
     class GameQuestions
     {
         private int $id;
@@ -39,6 +41,18 @@
         public function getIsCorrect()
         {
             return $this->is_correct;
+        }
+
+        public function createGameQuestions(self $gameQuestions)
+        {
+            $gameQuestionsDao = new GameQuestionsDAO();
+            $gameQuestionsDao->createGameQuestions($gameQuestions);
+        }
+
+        public function getGameQuestionsByGameId(int $gameId)
+        {
+            $gameQuestionsDao = new GameQuestionsDAO();
+            $gameQuestionsDao->getGameQuestionsByGameId($gameId);
         }
     }
 ?>

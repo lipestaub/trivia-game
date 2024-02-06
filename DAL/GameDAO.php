@@ -37,11 +37,11 @@
             return $stmt->fetchAll();
         }
 
-        public function getGamesById(int $id)
+        public function getGamesByUserId(int $userId)
         {
-            $query = "SELECT * FROM game WHERE id = :id;";
+            $query = "SELECT * FROM game WHERE user_id = :user_id;";
             $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":user_id", $userId);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             return $stmt->fetchAll();
