@@ -18,7 +18,7 @@
             $stmt->bindValue(":category", $question->getCategory());
             $stmt->bindValue(":text", $question->getText());
             $stmt->bindValue(":correct_answer", $question->getCorrectAnswers());
-            $stmt->bindValue(":icorrect_answer", $question->getIncorrectAnswers());
+            $stmt->bindValue(":incorrect_answers", $question->getIncorrectAnswers());
             $stmt->execute();
         }
 
