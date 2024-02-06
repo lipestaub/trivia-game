@@ -7,7 +7,7 @@
         private ?string $username;
         private ?string $password;
 
-        public function __construct(?int $id = null, ?string $username, ?string $password)
+        public function __construct(?int $id = null, ?string $username = null, ?string $password = null)
         {
             $this->id       = $id;
             $this->username = $username;

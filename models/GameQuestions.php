@@ -9,7 +9,13 @@
         private ?string $user_answer;
         private ?bool $is_correct;
 
-        public function __construct(?int $id = null, ?int $game_id, ?int $question_id, ?string $user_answer, ?bool $is_correct)
+        public function __construct(
+            ?int $id = null,
+            ?int $game_id = null,
+            ?int $question_id = null,
+            ?string $user_answer = null,
+            ?bool $is_correct = null
+        )
         {
             $this->id          = $id;
             $this->game_id     = $game_id;

@@ -11,7 +11,15 @@
         private ?string $correct_answers;
         private ?string $incorrect_answers;
 
-        public function __construct(?int $id = null, ?string $type, ?string $difficulty, ?string $category, ?string $text, ?string $correct_answers, ?string $incorrect_answers)
+        public function __construct(
+            ?int $id = null,
+            ?string $type = null,
+            ?string $difficulty = null,
+            ?string $category = null,
+            ?string $text = null,
+            ?string $correct_answers = null,
+            ?string $incorrect_answers = null
+        )
         {
             $this->id                = $id;
             $this->type              = $type;

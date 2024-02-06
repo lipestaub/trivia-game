@@ -7,7 +7,7 @@
         private ?int $user_id;
         private ?DateTime $start_date;
 
-        public function __construct(?int $id = null, ?int $user_id, ?DateTime $start_date)
+        public function __construct(?int $id = null, ?int $user_id = null, ?DateTime $start_date = null)
         {
             $this->id         = $id;
             $this->user_id    = $user_id;
