@@ -3,8 +3,7 @@
     {
         public function signInPage()
         {
-            header('Location: ../views/signIn.php');
-            exit();
+            require_once __DIR__ . '/../views/signIn.php';
         }
 
         public function validateUsernameAndPassword()
@@ -14,8 +13,7 @@
 
         public function signUpPage()
         {
-            header('Location: ../views/signUp.php');
-            exit();
+            require_once __DIR__ . '/../views/signUp.php';
         }
 
         public function createUser()
