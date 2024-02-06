@@ -1,6 +1,8 @@
 <?php
-    class Connection {
-        public static function getConnection() {
+    class Connection
+    {
+        public static function getConnection()
+        {
             try {
                 return new PDO('pgsql:host=localhost;dbname=trivia', 'postgres', 'postgres');
             }

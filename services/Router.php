@@ -1,5 +1,6 @@
 <?php
-    class Router {
+    class Router
+    {
         private array $routes;
 
         public function __construct()
@@ -21,7 +22,8 @@
             ];
         }
 
-        public function getResponse(Request $request) {
+        public function getResponse(Request $request)
+        {
             if (isset($this->routes[$request->getMethod()][$request->getRoute()])) {
                 $controllerInfo = explode('@', $this->routes[$request->getMethod()][$request->getRoute()]);
                 

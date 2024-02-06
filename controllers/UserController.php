@@ -1,21 +1,25 @@
 <?php
     class UserController
     {
-        public function signInPage() {
+        public function signInPage()
+        {
             header('Location: ../views/signIn.php');
             exit();
         }
 
-        public function validateUsernameAndPassword() {
+        public function validateUsernameAndPassword()
+        {
             var_dump($_POST);
         }
 
-        public function signUpPage() {
+        public function signUpPage()
+        {
             header('Location: ../views/signUp.php');
             exit();
         }
 
-        public function createUser() {
+        public function createUser()
+        {
 
         }
     }

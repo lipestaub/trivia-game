@@ -1,5 +1,6 @@
 <?php
-    class Request {
+    class Request
+    {
         private string $method;
         private string $route;
 
@@ -9,11 +10,13 @@
             $this->route = $_SERVER['REQUEST_URI'];
         }
 
-        public function getMethod() {
+        public function getMethod()
+        {
             return $this->method;
         }
 
-        public function getRoute() {
+        public function getRoute()
+        {
             return $this->route;
         }
     }
