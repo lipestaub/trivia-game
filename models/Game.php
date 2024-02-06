@@ -3,7 +3,7 @@
 
     class Game
     {
-        private int $id;
+        private ?int $id;
         private int $user_id;
         private DateTime $start_date;
 

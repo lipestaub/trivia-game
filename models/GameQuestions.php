@@ -3,7 +3,7 @@
 
     class GameQuestions
     {
-        private int $id;
+        private ?int $id;
         private int $game_id;
         private int $question_id;
         private string $user_answer;
