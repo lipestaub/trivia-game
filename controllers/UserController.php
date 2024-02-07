@@ -20,7 +20,7 @@
             $userModel = new User();
             $user = $userModel->getUserByUsernameAndPassword($username, $password);
 
-            if (count($user) >= 1) {
+            if ($user->getId() !== null) {
                 header('Location: /game');
             }
             else {
@@ -36,8 +36,9 @@
             $password = $_POST['password'];
 
             $userModel = new User();
+            $user = $userModel->getUserByUsername($username);
 
-            if (count($userModel->getUserByUsername($username)) <= 0) {
+            if ($user->getId() !== null) {
                 $userModel->createUser(new User(null, $username, $password));
 
                 header('Location: /sign-in');
