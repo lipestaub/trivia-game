@@ -55,12 +55,6 @@
             $gameQuestionsDao->createGameQuestions($gameQuestions);
         }
 
-        public function getGameQuestionsByGameId(int $gameId)
-        {
-            $gameQuestionsDao = new GameQuestionsDAO();
-            return $gameQuestionsDao->getGameQuestionsByGameId($gameId);
-        }
-
         public function getCorrectAnswersCountByGameId(int $gameId)
         {
             $gameQuestionsDao = new GameQuestionsDAO();

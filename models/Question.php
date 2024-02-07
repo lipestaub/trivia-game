@@ -8,7 +8,7 @@
         private ?string $difficulty;
         private ?string $category;
         private ?string $text;
-        private ?string $correct_answers;
+        private ?string $correct_answer;
         private ?string $incorrect_answers;
 
         public function __construct(
@@ -17,7 +17,7 @@
             ?string $difficulty = null,
             ?string $category = null,
             ?string $text = null,
-            ?string $correct_answers = null,
+            ?string $correct_answer = null,
             ?string $incorrect_answers = null
         )
         {
@@ -26,7 +26,7 @@
             $this->difficulty        = $difficulty;
             $this->category          = $category;
             $this->text              = $text;
-            $this->correct_answers   = $correct_answers;
+            $this->correct_answer   = $correct_answer;
             $this->incorrect_answers = $incorrect_answers;
         }
 
@@ -55,9 +55,9 @@
             return $this->text;
         }
 
-        public function getCorrectAnswers()
+        public function getCorrectAnswer()
         {
-            return $this->correct_answers;
+            return $this->correct_answer;
         }
 
         public function getIncorrectAnswers()

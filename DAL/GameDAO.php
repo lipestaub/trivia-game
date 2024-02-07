@@ -18,35 +18,6 @@
             $stmt->execute();
         }
 
-        public function getGameById(int $id)
-        {
-            $query = "SELECT * FROM game WHERE id = :id;";
-            $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":id", $id);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll()[0];
-        }
-
-        public function getGames()
-        {
-            $query = "SELECT * FROM game;";
-            $stmt = $this->db->prepare($query);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll();
-        }
-
-        public function getGamesByUserId(int $userId)
-        {
-            $query = "SELECT * FROM game WHERE user_id = :user_id;";
-            $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":user_id", $userId);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll();
-        }
-
         public function getLastGameByUserId(int $userId)
         {
             $query = "SELECT * FROM game WHERE user_id = :user_id ORDER BY id DESC LIMIT 1;";

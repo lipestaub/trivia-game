@@ -23,6 +23,6 @@
         <input type="submit" value="Sign In">
     </form>
     <br>
-    <a href="/sign-up" target="_blank">Sign Up</a>
+    <a href="/sign-up">Sign Up</a>
 </body>
 </html>

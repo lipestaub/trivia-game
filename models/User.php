@@ -35,18 +35,6 @@
             $userDAO->createUser($user);
         }
 
-        public function getUserById(int $id)
-        {
-            $userDAO = new UserDAO();
-            $user = $userDAO->getUserById($id);
-            
-            return new self(
-                $user['id'],
-                $user['username'],
-                $user['password'],
-            );
-        }
-
         public function getUserByUsernameAndPassword(string $username, string $password)
         {
             $userDAO = new UserDAO();

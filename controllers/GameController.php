@@ -54,7 +54,7 @@
             $username = $_SESSION['username'];
             $gameId = $_SESSION['game_id'];
 
-            $answers = array_merge(explode(',', str_replace(['[', ']', '"'], '', $question->getIncorrectAnswers())), [$question->getCorrectAnswers()]);
+            $answers = array_merge(explode(',', str_replace(['[', ']', '"'], '', $question->getIncorrectAnswers())), [$question->getCorrectAnswer()]);
             shuffle($answers);
             
             require_once __DIR__ . '/../views/game.php';
@@ -89,7 +89,7 @@
             $questionModel = new Question();
             $question = $questionModel->getQuestionById($questionId);
 
-            $isCorrect = $userAnswer === $question->getCorrectAnswers();
+            $isCorrect = $userAnswer === $question->getCorrectAnswer();
 
             $gameQuestionModel = new GameQuestions();
             $gameQuestionModel->createGameQuestions(new GameQuestions(null, $gameId, $questionId, $userAnswer, $isCorrect));

@@ -21,16 +21,6 @@
             $stmt->execute();
         }
 
-        public function getGameQuestionsByGameId(int $gameId)
-        {
-            $query = "SELECT * FROM game_questions WHERE game_id = :game_id;";
-            $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":game_id", $gameId);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll();
-        }
-
         public function getCorrectAnswersCountByGameId(int $gameId)
         {
             $query = "SELECT * FROM game_questions WHERE game_id = :game_id AND is_correct = true;";

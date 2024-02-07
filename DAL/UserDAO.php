@@ -19,16 +19,6 @@
             $stmt->execute();
         }
 
-        public function getUserById(int $id)
-        {
-            $query = 'SELECT * FROM "user" WHERE id = :id;';
-            $stmt = $this->db->prepare($query);
-            $stmt->bindParam(":id", $id);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $stmt->fetchAll()[0];
-        }
-
         public function getUserByUsernameAndPassword(string $username, string $password)
         {
             $query = 'SELECT * FROM "user" WHERE username = :username AND password = :password;';
