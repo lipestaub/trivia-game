@@ -21,7 +21,7 @@ CREATE TABLE public.question(
 CREATE TABLE public.game(
     id serial4 NOT NULL,
     user_id int4 NOT NULL,
-    start_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP AT TIME ZONE 'UTC' - INTERVAL '3 hours',
+    start_date TIMESTAMPTZ DEFAULT timezone('UTC', CURRENT_TIMESTAMP) - INTERVAL '3 hour',
     CONSTRAINT game_pkey PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
