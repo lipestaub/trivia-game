@@ -12,6 +12,17 @@
             require_once __DIR__ . '/../views/signUp.php';
         }
 
+        public function signOut()
+        {
+            session_start();
+            unset($_SESSION);
+
+            if (!isset($_SESSION['user_id'])) {
+                header('Location: /sign-in');
+                exit();
+            }
+        }
+
         public function validateUsernameAndPassword()
         {
             $username = $_POST['username'];
