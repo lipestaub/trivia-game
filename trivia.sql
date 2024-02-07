@@ -21,7 +21,7 @@ CREATE TABLE public.question(
 CREATE TABLE public.game(
     id serial4 NOT NULL,
     user_id int4 NOT NULL,
-    start_date TIMESTAMP NOT NULL,
+    start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT game_pkey PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
