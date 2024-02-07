@@ -12,9 +12,8 @@
 
         public function createGameQuestions(GameQuestions $gameQuestions)
         {
-            $query = "INSERT INTO game_questions VALUES (:id, :game_id, :question_id, :user_answer, :is_correct);";
+            $query = "INSERT INTO game_questions (game_id, question_id, user_answer, is_correct) VALUES (:game_id, :question_id, :user_answer, :is_correct);";
             $stmt = $this->db->prepare($query);
-            $stmt->bindValue(":id", $gameQuestions->getId());
             $stmt->bindValue(":game_id", $gameQuestions->getGameId());
             $stmt->bindValue(":question_id", $gameQuestions->getQuestionId());
             $stmt->bindValue(":user_answer", $gameQuestions->getUserAnswer());

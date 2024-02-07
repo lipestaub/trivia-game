@@ -43,7 +43,7 @@
             return new self(
                 $game['id'],
                 $game['user_id'],
-                $game['start_date'],
+                new DateTime($game['start_date']),
             );
         }
 
@@ -67,7 +67,7 @@
             return new self(
                 $game['id'],
                 $game['user_id'],
-                $game['start_date'],
+                new DateTime($game['start_date']),
             );
 
 

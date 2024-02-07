@@ -12,11 +12,9 @@
 
         public function createGame(Game $game)
         {
-            $query = "INSERT INTO game VALUES (:id, :user_id, :start_date);";
+            $query = "INSERT INTO game (user_id) VALUES (:user_id);";
             $stmt = $this->db->prepare($query);
-            $stmt->bindValue(":id", $game->getId());
             $stmt->bindValue(":user_id", $game->getUserId());
-            $stmt->bindValue(":start_date", $game->getStartDate());
             $stmt->execute();
         }
 
@@ -51,9 +49,10 @@
 
         public function getLastGameByUserId(int $userId)
         {
-            $query = "SELECT * FROM game ORDER BY id DESC LIMIT 1;";
+            $query = "SELECT * FROM game WHERE user_id = :user_id ORDER BY id DESC LIMIT 1;";
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(":user_id", $userId);
+            $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             return $stmt->fetchAll()[0];
         }
