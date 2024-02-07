@@ -11,17 +11,17 @@
     <h1>Game (Question 1/5)</h1>
     <h2>Felipe's Turn</h2>
     <h3><?php echo $question->getText(); ?></h3>
-    <form action="/save-answer" method="post">
+    <form action="/save-answer" method="post" onsubmit="validateGameFields(event);">
         <?php
             foreach ($answers as $key=>$answer) {
         ?>
-                <label><input type="radio" name="answer" id="answer" value="<?php echo $answer; ?>"> <?php echo $answer; ?></label><br>
+                <label><input type="radio" name="answer" id="<?php echo $key; ?>" value="<?php echo $answer; ?>"> <?php echo $answer; ?></label><br>
         <?php
             }
         ?>
         <input type="hidden" name="question_id" id="question_id" value="1">
         <br>
-        <input type="submit" value="Save Answer" onclick="validateGameFields">
+        <input type="submit" value="Save Answer">
     </form>
 </body>
 </html>
