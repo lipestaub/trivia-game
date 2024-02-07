@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Results</h1>
-    <h2>Correct answers: 4/5</h2>
+    <h2>Correct answers: <?php echo $correctAnswersCount; ?>/5</h2>
     <a href="/game">New Game</a>
     <a href="/sign-out">Sign out</a>
 </body>

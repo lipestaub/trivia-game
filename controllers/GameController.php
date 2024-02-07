@@ -61,7 +61,15 @@
         }
 
         public function resultsPage()
-        {
+        {  
+            session_start();
+
+            $gameQuestionModel = new GameQuestions();
+            $correctAnswersCount = $gameQuestionModel->getCorrectAnswersCountByGameId($_SESSION['game_id']);
+            
+            unset($_SESSION['game_id']);
+            unset($_SESSION['counter']);
+
             require_once __DIR__ . '/../views/results.php';
         }
 
