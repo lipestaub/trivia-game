@@ -15,7 +15,7 @@
         public function validateUsernameAndPassword()
         {
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
 
             $userModel = new User();
             $user = $userModel->getUserByUsernameAndPassword($username, $password);
@@ -33,12 +33,12 @@
         public function createUser()
         {
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
 
             $userModel = new User();
             $user = $userModel->getUserByUsername($username);
 
-            if ($user->getId() !== null) {
+            if ($user->getId() === null) {
                 $userModel->createUser(new User(null, $username, $password));
 
                 header('Location: /sign-in');
