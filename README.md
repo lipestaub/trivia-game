@@ -1,37 +1,20 @@
-VIEWS
----------------------------------------------------------------------------------------------------------------------------
-tela de login -> nome de usuário (input text) e senha (input password)
+# PHP Open Trivia Game
 
-tela de cadastro -> nome de usuário (input text), senha (input password) e confirmar senha (input password)
+This repository contains a PHP-based trivia game that utilizes the Open Trivia Database (OTDB) API.
 
-tela de jogo -> pergunta (h3), alternativas (input radio) e botão salvar resposta (button ou input submit)
+## Description
 
-tela de resultado? -> quantidade de acertos e respostas corretas para as alternativas
+This application provides a trivia game experience by fetching questions from the OTDB API. Users can answer questions and track their scores.
 
-BANCO DE DADOS
----------------------------------------------------------------------------------------------------------------------------
-*user*
-id
-username
-password
+## Features
 
-*question*
-id
-type
-difficulty
-category
-text
-correct_answer
-incorrect_answers
+* Fetches trivia questions from the Open Trivia Database API using cURL.
+* Displays questions with multiple-choice answers.
+* Tracks user scores.
+* Supports different question categories and difficulty levels (configurable via API parameters).
 
-*game_questions*
-id
-game_id
-question_id
-user_answer
-is_correct
+## Usage
 
-*game*
-id
-user_id
-start_date
+1.  Clone the repository to your web server's document root.
+2.  Ensure you have a PHP environment set up with the cURL extension enabled.
+3.  Open the application in your web browser.
